@@ -49,14 +49,13 @@ ${userMessage}
 
   const errorText = await response.text();
 
-if (!response.ok) {
-  console.log("🔥 FULL GEMINI ERROR RESPONSE:", errorText);
+console.log("🔥 STATUS:", response.status);
+console.log("🔥 GEMINI RAW ERROR:", errorText);
 
-  return res.status(500).json({
-    reply: "Gemini failed",
-    debug: errorText
-  });
-}
+return res.status(500).json({
+  reply: "Gemini failed",
+  debug: errorText
+});
 
     const data = await response.json();
 
