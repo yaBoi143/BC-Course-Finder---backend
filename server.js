@@ -47,6 +47,12 @@ ${userMessage}
       }
     );
 
+  if (!response.ok) {
+  const errorText = await response.text();
+  console.log("GEMINI ERROR:", errorText);
+  return res.json({ reply: "Backend error calling Gemini." });
+  }
+
     const data = await response.json();
 
     console.log("GEMINI RAW RESPONSE:", JSON.stringify(data, null, 2));
