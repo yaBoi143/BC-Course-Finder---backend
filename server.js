@@ -47,15 +47,24 @@ ${userMessage}
       }
     );
 
-  const errorText = await response.text();
+const errorText = await response.text();
 
-console.log("🔥 STATUS:", response.status);
-console.log("🔥 GEMINI RAW ERROR:", errorText);
+if (!response.ok) {
+  console.log("🔥 GEMINI ERROR:", errorText);
 
-return res.status(500).json({
-  reply: "Gemini failed",
-  debug: errorText
-});
+  if (errorText.includes("RetryInfo")) {
+    return res.json({
+      reply: "⏳ The AI is a bit busy right now, please try again in a moment."
+    });
+  }
+
+  return res.json({
+    reply: "⚠️ Something went wrong with the AI."
+  });
+}
+
+// 👇 IMPORTANT: parse JSON AFTER this
+const data = JSON.parse(errorText);
 
     const data = await response.json();
 
