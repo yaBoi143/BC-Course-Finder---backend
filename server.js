@@ -15,20 +15,20 @@ app.post("/chat", async (req, res) => {
   const userMessage = req.body.message;
 
   try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          contents: [
+   const response = await fetch(
+  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      contents: [
+        {
+          role: "user",
+          parts: [
             {
-              role: "user",
-              parts: [
-                {
-                  text: `
+              text: `
 You are BC CourseFinder™, an AI assistant for South African matric students.
 
 Rules:
@@ -39,17 +39,17 @@ Rules:
 User question:
 ${userMessage}
 `
-                }
-              ]
             }
           ]
-        })
-      }
-    );
+        }
+      ]
+    })
+  }
+);
 
-const errorText = await response.text();
-
+// ❌ HANDLE ERRORS FIRST
 if (!response.ok) {
+  const errorText = await response.text();
   console.log("🔥 GEMINI ERROR:", errorText);
 
   if (errorText.includes("RetryInfo")) {
@@ -63,18 +63,17 @@ if (!response.ok) {
   });
 }
 
-// 👇 IMPORTANT: parse JSON AFTER this
-const data = JSON.parse(errorText);
+// ✅ ONLY parse JSON if successful
+const data = await response.json();
 
-    const data = await response.json();
+console.log("GEMINI RAW RESPONSE:", JSON.stringify(data, null, 2));
 
-    console.log("GEMINI RAW RESPONSE:", JSON.stringify(data, null, 2));
+const reply =
+  data.candidates?.[0]?.content?.parts?.[0]?.text ||
+  "Sorry, I couldn’t respond.";
+
+res.json({ reply });
     
-    const reply =
-      data.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "Sorry, I couldn’t respond.";
-
-    res.json({ reply });
   } catch (error) {
     res.status(500).json({ error: "Error occurred" });
   }
