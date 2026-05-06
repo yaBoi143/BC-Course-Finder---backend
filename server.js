@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import fetch from "node-fetch";
 
+console.log("DEPLOY VERSION 2 - GROQ ACTIVE");
+
 dotenv.config();
 
 const app = express();
