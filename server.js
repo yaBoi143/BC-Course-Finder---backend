@@ -9,73 +9,66 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const API_KEY = process.env.GEMINI_API_KEY;
+// ✅ Groq API key (NOT Gemini)
+const API_KEY = process.env.GROQ_API_KEY;
 
 app.post("/chat", async (req, res) => {
   const userMessage = req.body.message;
 
   try {
-   const response = await fetch(
-  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      contents: [
-        {
-          role: "user",
-          parts: [
+    const response = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "llama3-8b-8192",
+          messages: [
             {
-              text: `
+              role: "system",
+              content: `
 You are BC CourseFinder™, an AI assistant for South African matric students.
 
 Rules:
 - Only answer IT career questions
 - Keep answers simple
 - Do not ask for personal info
-
-User question:
-${userMessage}
-`
+              `
+            },
+            {
+              role: "user",
+              content: userMessage
             }
           ]
-        }
-      ]
-    })
-  }
-);
+        })
+      }
+    );
 
-// ❌ HANDLE ERRORS FIRST
-if (!response.ok) {
-  const errorText = await response.text();
-  console.log("🔥 GEMINI ERROR:", errorText);
+    const text = await response.text();
+    console.log("GROQ RAW RESPONSE:", text);
 
-  if (errorText.includes("RetryInfo")) {
-    return res.json({
-      reply: "⏳ The AI is a bit busy right now, please try again in a moment."
-    });
-  }
+    if (!response.ok) {
+      return res.json({
+        reply: "⚠️ AI request failed (check server logs)"
+      });
+    }
 
-  return res.json({
-    reply: "⚠️ Something went wrong with the AI."
-  });
-}
+    const data = JSON.parse(text);
 
-// ✅ ONLY parse JSON if successful
-const data = await response.json();
+    const reply =
+      data.choices?.[0]?.message?.content ||
+      "Sorry, I couldn’t respond.";
 
-console.log("GEMINI RAW RESPONSE:", JSON.stringify(data, null, 2));
+    res.json({ reply });
 
-const reply =
-  data.candidates?.[0]?.content?.parts?.[0]?.text ||
-  "Sorry, I couldn’t respond.";
-
-res.json({ reply });
-    
   } catch (error) {
-    res.status(500).json({ error: "Error occurred" });
+    console.log("SERVER ERROR:", error);
+    res.status(500).json({
+      reply: "⚠️ Server error occurred"
+    });
   }
 });
 
