@@ -1,0 +1,291 @@
+{
+  "network engineer": {
+    "career_name": "Network Engineer",
+    "qualification": "Diploma in Information Technology (NQF 6)",
+    "institution": "Belgium Campus",
+    "overview": "Designs, builds and maintains computer networks that allow devices and systems to communicate efficiently and securely.",
+    "responsibilities": [
+      "Setting up and configuring computer networks",
+      "Monitoring network performance",
+      "Maintaining routers, switches and servers",
+      "Ensuring network security",
+      "Troubleshooting network issues"
+    ],
+    "subjects": [
+      "Mathematics",
+      "Physical Science",
+      "Information Technology"
+    ],
+    "skills": [
+      "Problem solving",
+      "Logical thinking",
+      "Networking knowledge",
+      "Basic programming",
+      "Troubleshooting",
+      "Communication"
+    ],
+    "study_pathway": {
+      "year_1": [
+        "Business foundation",
+        "Network foundation",
+        "Computer foundation",
+        "Database foundation",
+        "Mathematics foundation",
+        "Programming foundation"
+      ],
+      "year_2": [
+        "Cloud-Native Application Architecture",
+        "Internet of Things",
+        "Operating Systems",
+        "Security"
+      ],
+      "year_3": [
+        "DevOps",
+        "Mainframe",
+        "Network Development",
+        "Operating Systems"
+      ]
+    },
+    "entry_level_jobs": [
+      "Junior Network Engineer",
+      "Network Support Technician",
+      "Network Administrator Intern"
+    ],
+    "related_careers": [
+      "Systems Administrator",
+      "Cloud Engineer",
+      "IT Support Specialist"
+    ]
+  },
+
+  "data scientist": {
+    "career_name": "Data Scientist",
+    "qualification": "Bachelor of Computing (NQF 8)",
+    "institution": "Belgium Campus",
+    "overview": "Analyses large datasets to identify trends, make predictions and help organisations make data-driven decisions.",
+    "responsibilities": [
+      "Collecting and cleaning datasets",
+      "Analysing trends and patterns",
+      "Building machine learning models",
+      "Creating reports and visualisations",
+      "Working with databases",
+      "Supporting business decisions"
+    ],
+    "subjects": [
+      "Mathematics",
+      "Information Technology",
+      "Physical Science"
+    ],
+    "skills": [
+      "Python",
+      "R",
+      "SQL",
+      "Statistical analysis",
+      "Machine learning",
+      "Problem solving",
+      "Critical thinking",
+      "Communication"
+    ],
+    "study_pathway": {
+      "year_1_to_3": [
+        "Business foundation",
+        "Network foundation",
+        "Computer foundation",
+        "Database foundation",
+        "Mathematics foundation",
+        "Programming foundation"
+      ],
+      "specialised_modules": [
+        "Data Warehousing",
+        "Data Science",
+        "Database Administration",
+        "Statistics"
+      ],
+      "year_4": [
+        "Applied Information Technology",
+        "Dissertation"
+      ]
+    },
+    "entry_level_jobs": [
+      "Junior Data Analyst",
+      "Data Science Intern",
+      "Business Intelligence Analyst",
+      "Machine Learning Intern"
+    ],
+    "related_careers": [
+      "Machine Learning Engineer",
+      "Data Engineer",
+      "Business Analyst",
+      "AI Specialist"
+    ]
+  },
+
+  "cybersecurity specialist": {
+    "career_name": "Cybersecurity Specialist",
+    "qualification": "Diploma in Information Technology (NQF 6)",
+    "institution": "Belgium Campus",
+    "overview": "Protects systems, networks and data from cyber threats such as hacking, malware and data breaches.",
+    "responsibilities": [
+      "Monitoring systems for threats",
+      "Investigating breaches",
+      "Managing firewalls and antivirus tools",
+      "Testing vulnerabilities",
+      "Teaching cybersecurity practices"
+    ],
+    "subjects": [
+      "Mathematics",
+      "Physical Science",
+      "Information Technology"
+    ],
+    "skills": [
+      "Problem solving",
+      "Logical thinking",
+      "Network security knowledge",
+      "Programming basics",
+      "Attention to detail",
+      "Communication"
+    ],
+    "study_pathway": {
+      "year_1": [
+        "Business foundation",
+        "Network foundation",
+        "Computer foundation",
+        "Database foundation",
+        "Mathematics foundation",
+        "Programming foundation"
+      ],
+      "year_2": [
+        "Cloud-Native Application Architecture",
+        "Internet of Things",
+        "Operating Systems",
+        "Security"
+      ],
+      "year_3": [
+        "Ethical Hacking",
+        "Penetration Testing"
+      ]
+    },
+    "entry_level_jobs": [
+      "Junior Cybersecurity Analyst",
+      "SOC Analyst",
+      "IT Security Technician",
+      "Information Security Intern"
+    ],
+    "related_careers": [
+      "Network Engineer",
+      "Cloud Security Engineer",
+      "Digital Forensics Analyst"
+    ]
+  },
+
+  "cloud engineer": {
+    "career_name": "Cloud Engineer",
+    "qualification": "Diploma in Information Technology (NQF 6)",
+    "institution": "Belgium Campus",
+    "overview": "Manages cloud-based systems, applications and infrastructure for businesses.",
+    "responsibilities": [
+      "Managing cloud systems",
+      "Maintaining online servers",
+      "Monitoring performance",
+      "Applying security measures",
+      "Automating processes"
+    ],
+    "subjects": [
+      "Mathematics",
+      "Information Technology",
+      "Physical Science"
+    ],
+    "skills": [
+      "Problem solving",
+      "Networking knowledge",
+      "Programming",
+      "Cloud systems",
+      "Teamwork"
+    ],
+    "study_pathway": {
+      "year_1": [
+        "Business foundation",
+        "Network foundation",
+        "Computer foundation",
+        "Database foundation",
+        "Mathematics foundation",
+        "Programming foundation"
+      ],
+      "year_2": [
+        "Cloud-Native Application Architecture",
+        "Internet of Things",
+        "Operating Systems",
+        "Security"
+      ],
+      "year_3": [
+        "Cloud-Native Architecture"
+      ]
+    },
+    "entry_level_jobs": [
+      "Cloud Support Technician",
+      "Junior Cloud Engineer",
+      "IT Support Specialist"
+    ],
+    "related_careers": [
+      "DevOps Engineer",
+      "Network Engineer",
+      "Systems Administrator"
+    ]
+  },
+
+  "software developer": {
+    "career_name": "Software Developer",
+    "qualification": "Diploma in Information Technology (NQF 6)",
+    "institution": "Belgium Campus",
+    "overview": "Creates applications, websites and software systems that solve real-world problems.",
+    "responsibilities": [
+      "Coding and testing",
+      "Building applications",
+      "Fixing software issues",
+      "Working with developers and designers"
+    ],
+    "subjects": [
+      "Mathematics",
+      "English",
+      "Computer Applications Technology"
+    ],
+    "skills": [
+      "Fast learning",
+      "Problem solving",
+      "Teamwork",
+      "Logic"
+    ],
+    "study_pathway": {
+      "year_1": [
+        "Business foundation",
+        "Network foundation",
+        "Computer foundation",
+        "Database foundation",
+        "Mathematics foundation",
+        "Programming foundation"
+      ],
+      "year_2": [
+        "Programming",
+        "Software Analysis and Design",
+        "Software Testing",
+        "User Experience Design",
+        "Web Programming"
+      ],
+      "year_3": [
+        "Programming",
+        "Scripting and Syntax",
+        "Software Analysis and Design"
+      ]
+    },
+    "entry_level_jobs": [
+      "IT Graduate Programme",
+      "Software Development Intern",
+      "Junior Developer"
+    ],
+    "related_careers": [
+      "Web Developer",
+      "Mobile Developer",
+      "Software Engineer"
+    ]
+  }
+}
