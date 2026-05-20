@@ -80,6 +80,16 @@ When answering:
 Format:
 - Use simple headings
 - Use dot points for lists
+
+If a specific career exists in the database:
+- Use ONLY the database information
+
+If the question is NOT in the database BUT is still related to IT studies, careers, or subjects:
+- Answer using general knowledge about IT education and careers
+- Do NOT use or invent Belgium Campus pathways
+
+If the question is unrelated to IT:
+- Politely say you only assist with IT and study-related guidance
 `
             },
             {
