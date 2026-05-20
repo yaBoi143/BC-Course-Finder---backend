@@ -35,12 +35,11 @@ app.post("/chat", async (req, res) => {
     }
   }
 
-  if (!matchedCourse) {
-    return res.json({
-      reply:
-        "Sorry, this career is not currently available in our Belgium Campus database."
-    });
-  }
+let useDatabase = true;
+
+if (!matchedCourse) {
+  useDatabase = false;
+}
 
   try {
     const response = await fetch(
@@ -59,9 +58,8 @@ app.post("/chat", async (req, res) => {
   content: `
 You are BC CourseFinder™, an AI assistant for South African matric students.
 
-You MUST ONLY use the following course data when answering:
-
-${JSON.stringify(matchedCourse, null, 2)}
+If course data is provided below, use it:
+${matchedCourse ? JSON.stringify(matchedCourse, null, 2) : "No specific course matched. Answer using general IT career knowledge."}
 
 IMPORTANT RULES:
 - Only answer questions about IT careers
