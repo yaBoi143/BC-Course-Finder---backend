@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ✅ Groq API key (NOT Gemini)
+
 const API_KEY = process.env.GROQ_API_KEY;
 
 const courseData = JSON.parse(
