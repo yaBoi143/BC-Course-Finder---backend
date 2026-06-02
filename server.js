@@ -134,6 +134,10 @@ ABSOLUTE RULE:
 Format:
 - Use simple headings
 - Use dot points for lists
+Formatting rules:
+- Do NOT use asterisks (*) for lists
+- Use numbered or clean line-separated formatting
+- Avoid markdown syntax
 
 If a specific career exists in the database:
 - Use ONLY the database information
