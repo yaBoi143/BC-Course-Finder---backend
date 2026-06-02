@@ -26,18 +26,50 @@ app.post("/chat", async (req, res) => {
 
   const career = userMessage.toLowerCase();
 
-  let matchedCourse = null;
+let matchedCourse = null;
 
-  for (const key in courseData) {
-    if (career.includes(key)) {
-      matchedCourse = courseData[key];
-      break;
-    }
+for (const key in courseData) {
+  if (career.includes(key)) {
+    matchedCourse = courseData[key];
+    break;
   }
+}
+
+let matchedCareers = [];
+
+if (!matchedCourse) {
+  const query = userMessage.toLowerCase();
+
+  const hasMaths = query.includes("math");
+  const hasScience = query.includes("physical science");
+  const hasIT =
+    query.includes("information technology") ||
+    query.includes("it");
+
+  matchedCareers = Object.values(courseData).filter(course => {
+    const subjects = course.subjects.map(s => s.toLowerCase());
+
+    let matches = true;
+
+    if (hasMaths) {
+      matches = matches && subjects.includes("mathematics");
+    }
+
+    if (hasScience) {
+      matches = matches && subjects.includes("physical science");
+    }
+
+    if (hasIT) {
+      matches = matches && subjects.includes("information technology");
+    }
+
+    return matches;
+  });
+}
 
 let useDatabase = true;
 
-if (!matchedCourse) {
+if (!matchedCourse && matchedCareers.length === 0) {
   useDatabase = false;
 }
 
@@ -59,7 +91,13 @@ if (!matchedCourse) {
 You are BC CourseFinder™, an AI assistant for South African matric students.
 
 If course data is provided below, use it:
-${matchedCourse ? JSON.stringify(matchedCourse, null, 2) : "No specific course matched. Answer using general IT career knowledge."}
+${
+  matchedCourse
+    ? JSON.stringify(matchedCourse, null, 2)
+    : matchedCareers.length > 0
+      ? JSON.stringify(matchedCareers, null, 2)
+      : "No matching careers found in the Belgium Campus database."
+}
 
 IMPORTANT RULES:
 - Only answer questions about IT careers
@@ -100,9 +138,11 @@ Format:
 If a specific career exists in the database:
 - Use ONLY the database information
 
-If the question is NOT in the database BUT is still related to IT studies, careers, or subjects:
-- Answer using general knowledge about IT education and careers
-- Do NOT use or invent Belgium Campus pathways
+If no matching careers are found in the database:
+- Respond with:
+"No matching careers found in the Belgium Campus database."
+- Do not suggest alternative careers.
+- Do not use general IT career knowledge.
 
 If the question is unrelated to IT:
 - Politely say you only assist with IT and study-related guidance
